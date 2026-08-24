@@ -916,7 +916,7 @@ akagi64.exe 61 c:\windows\system32\charmap.exe
 # Protection Measures
 The most effective protection against UAC bypass techniques is using an account without administrative privileges.
 
-# Build instructions
+# Original Build instructions
 
 UACMe is written in C and requires Microsoft Visual Studio 2019 or later to build from source.
 
