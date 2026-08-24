@@ -957,7 +957,7 @@ UACMe is written in C and requires Microsoft Visual Studio 2019 or later to buil
 
 If you find this project interesting, you can buy Leo Davidson a coffee : BTC (Bitcoin): bc1qzkvtpa0053cagf35dqmpvv9k8hyrwl7krwdz84q39mcpy68y6tmqsju0g4
 
-buy Rundas a soda: BTC 3Pak9Ci4dUYxNGjTye2UYhVk4dJ6epA8ic
+buy Rundas a soda: BTC 3PaK9Ci4dUYxNGjTye2UYhVk4dJ6epA8ic
   
 # References
 
