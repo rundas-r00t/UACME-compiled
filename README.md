@@ -11,7 +11,7 @@ Defeating Windows User Account Control by abusing built-in Windows AutoElevate b
 * **Operating Systems**: Windows 7/8/8.1/10/11 (x86-32/x64, client, some methods however works on server version too)
 * **User Account**: Administrator account with UAC set on default settings
 
-## Build Instructions
+## Actual Build Instructions
 ### Step 0: Install and prep Visual Studio
 install visual studio. in the installer window, Click the Modify button next to your version of Visual Studio. Go to the Individual Components tab at the top of the window. In the search box, type v143. Look for a component named MSVC v143 - VS 2022 C++ x64/x86 build tools (or similar, depending on your version) and check the box next to it. Click 'Modify' in the bottom-right corner to download and install it.
 
@@ -926,7 +926,7 @@ UACMe is written in C and requires Microsoft Visual Studio 2019 or later to buil
   * Windows 8.1 or Windows 10 SDK (tested with 19041 version)
   * NET Framework SDK (tested with 4.8 version)
 
-### Build Steps
+### Original (and vague) Build Steps
 
 1. **Configure Platform ToolSet** (Project->Properties->General):
    * For Visual Studio 2019: Select v142
@@ -944,7 +944,7 @@ UACMe is written in C and requires Microsoft Visual Studio 2019 or later to buil
    * Move compiled units and secret blobs to the Akagi\Bin directory
    * Rebuild Akagi
 
-> **Note**: Compiled binaries are not provided and will never be provided. This serves as a barrier against malicious usage and helps maintain the educational purpose of this project.
+~~> **Note**: Compiled binaries are not provided and will never be provided. This serves as a barrier against malicious usage and helps maintain the educational purpose of this project.~~
 
 ## Legal Disclaimer
 
@@ -955,9 +955,8 @@ UACMe is written in C and requires Microsoft Visual Studio 2019 or later to buil
 
 # Support
 
-If you find this project interesting, you can buy me a coffee
-
-BTC (Bitcoin): bc1qzkvtpa0053cagf35dqmpvv9k8hyrwl7krwdz84q39mcpy68y6tmqsju0g4
+If you find this project interesting, you can buy Leo Davidson a coffee : BTC (Bitcoin): bc1qzkvtpa0053cagf35dqmpvv9k8hyrwl7krwdz84q39mcpy68y6tmqsju0g4
+buy Rundas a soda: BTC 3Pak9Ci4dUYxNGjTye2UYhVk4dJ6epA8ic
   
 # References
 
