@@ -16,15 +16,19 @@ Defeating Windows User Account Control by abusing built-in Windows AutoElevate b
 install visual studio. in the installer window, Click the Modify button next to your version of Visual Studio. Go to the Individual Components tab at the top of the window. In the search box, type v143. Look for a component named MSVC v143 - VS 2022 C++ x64/x86 build tools (or similar, depending on your version) and check the box next to it. Click 'Modify' in the bottom-right corner to download and install it.
 
 ### Step 1: Open and Configure Visual Studio
-Open the project solution (uacme.sln) in Visual Studio.Look at the top toolbar and ensure the build configuration dropdown is set to Release (do not use Debug).Look at your Solution Explorer panel (usually on the right). If you are using Visual Studio 2022, right-click the top solution node, select Properties, and ensure the Platform Toolset is set to v143 and the Target Platform Version is set to 10.
+Open the project solution (uacme.sln) in Visual Studio. Look at the top toolbar and ensure the build configuration dropdown is set to Release (do not use Debug). Look at your Solution Explorer panel (usually on the right). If you are using Visual Studio 2022, right-click the top solution node, select Properties, and ensure the Platform Toolset is set to v143 and the Target Platform Version is set to 10.
 ### Step 2: Compile the Payload Units
-You need to compile the underlying DLLs first. In the Solution Explorer, right-click each of these projects one by one and select Build:Build Akatsuki (Set top architecture dropdown to x64). Build Fubuki (Set architecture to x64 and build, then switch architecture to x86 / Win32 and build again—you absolutely need both versions).
+You need to compile the underlying DLLs first. In the Solution Explorer, right-click each of these projects one by one and select Build.
+Build Akatsuki (Set top architecture dropdown to x64). Build Fubuki (Set architecture to x64 and build, then switch architecture to x86 / Win32 and build again—you absolutely need both versions).
 ### Step 3: Compile and Run the Naka Module
-The Naka tool handles encrypting your freshly built files so they can be securely linked later.Right-click Naka in Solution Explorer and select Build (with architecture set to x64). Open a standard Windows Command Prompt (cmd) and navigate to your UACME directory.Go into the output directory where Naka was created (usually \output\x64\Release\).Run the encryption commands on the compiled payload files by typing these exact lines one by one:cmdnaka64.exe ..\..\..\output\x64\Release\Akatsuki64.dll
-naka64.exe ..\..\..\output\x64\Release\Fubuki64.dll
-naka64.exe ..\..\..\output\Win32\Release\Fubuki32.dll
-naka64.exe ..\..\..\Source\Kamikaze\Kamikaze.msc
-Now, generate the decryption keys required by the main program by running:cmdnaka64.exe --stable
+The Naka tool handles encrypting your freshly built files so they can be securely linked later. Right-click Naka in Solution Explorer and select Build (with architecture set to x64). Open a standard Windows Command Prompt (cmd) and navigate to your UACME directory. Go into the output directory where Naka was created (usually \output\x64\Release\). Run the encryption commands on the compiled payload files by typing these exact lines one by one:
+```
+cmdnaka64.exe ..\path\to\Akatsuki\....output\x64\Release\Akatsuki64.dll
+naka64.exe ..\path\to\Fubiki\....\output\x64\Release\Fubuki64.dll
+naka64.exe ..\path\to\Fubiki\....output\Win32\Release\Fubuki32.dll
+naka64.exe ..\path\to\Kamikaze\....Source\Kamikaze\Kamikaze.msc
+```
+Generate the decryption keys required by the main program by running `cmdnaka64.exe --stable`
 ### Step 4: Move the Blobs to the Bin Directory
 The encryption steps above will generate several new files inside your Naka directory ending in .cd and .bin. You must manually move them to where the final program expects them.Using Windows File Explorer, copy these 6 specific files out of your Naka output folder:Akatsuki64.cdFubuki64.cdFubuki32.cdKamikaze.cdsecrets32.binsecrets64.binPaste all 6 of those files directly into the \Source\Akagi\bin\ directory.(Note: There may already be zero-byte dummy files with those names in that folder; overwrite them entirely).
 ### Step 5: Build the Final Executable
