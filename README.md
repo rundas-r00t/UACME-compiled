@@ -28,11 +28,18 @@ naka64.exe ..\path\to\Fubiki\....\output\x64\Release\Fubuki64.dll
 naka64.exe ..\path\to\Fubiki\....output\Win32\Release\Fubuki32.dll
 naka64.exe ..\path\to\Kamikaze\....Source\Kamikaze\Kamikaze.msc
 ```
-Generate the decryption keys required by the main program by running `cmdnaka64.exe --stable`
+Generate the decryption keys required by the main program by running `naka64.exe --stable`
 ### Step 4: Move the Blobs to the Bin Directory
-The encryption steps above will generate several new files inside your Naka directory ending in .cd and .bin. You must manually move them to where the final program expects them.Using Windows File Explorer, copy these 6 specific files out of your Naka output folder:Akatsuki64.cdFubuki64.cdFubuki32.cdKamikaze.cdsecrets32.binsecrets64.binPaste all 6 of those files directly into the \Source\Akagi\bin\ directory.(Note: There may already be zero-byte dummy files with those names in that folder; overwrite them entirely).
+The encryption steps above will generate several new files inside your Naka directory ending in .cd and .bin. You must manually move them to where the final program expects them.Using Windows File Explorer, copy these 6 specific files out of your Naka output folder:
+- Akatsuki64.cd
+- Fubuki64.cd
+- Fubuki32.cd
+- Kamikaze.cd
+- secrets32.bin
+- secrets64.bin
+Paste all 6 of those files directly into the \Source\Akagi\bin\ directory. (Note: There may already be zero-byte dummy files with those names in that folder; overwrite them entirely).
 ### Step 5: Build the Final Executable
-Now that the encrypted assets are sitting in the Akagi\bin\ directory, the main engine can package them inside itself.Go back to Visual Studio.Ensure the top toolbar dropdown is set to Release and x64.In the Solution Explorer, right-click Akagi and click Rebuild.Once finished, navigate to your \output\x64\Release\ folder. You will find Akagi64.exe, which is your fully functional, compiled tool ready for deployment or testing
+Now that the encrypted assets are sitting in the Akagi\bin\ directory, the main engine can package them inside itself. Go back to Visual Studio. Ensure the top toolbar dropdown is set to Release and x64. In the Solution Explorer, right-click Akagi and click `Rebuild`. Once finished, navigate to your \output\x64\Release\ folder. You will find Akagi64.exe, which is your fully functional, compiled tool ready for testing
 
 ## Usage
 
